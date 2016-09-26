@@ -7,13 +7,13 @@ A console based blackjack game built in Javascript.
 
 # Specifications
 
--[ ] Can handle 1 human player 
--[ ] Can handle up to 5 total Players
--[ ] Player can bet on a hand
--[ ] Player should be able to fold
--[ ] Double down, Split, Insurance, Hit, Stand, Surrender
--[ ] Beginner mode
--[ ] Natural Blackjack pays out 3:2      
+-[ ] Can handle 1 human player, 
+-[ ] Can handle up to 5 total Players,
+-[ ] Player can bet on a hand,
+-[ ] Player should be able to fold,
+-[ ] Double down, Split, Insurance, Hit, Stand, Surrender,
+-[ ] Beginner mode,
+-[ ] Natural Blackjack pays out 3:2 ,   
 
 
 Quality Rubric:
