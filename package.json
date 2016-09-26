@@ -1,0 +1,23 @@
+{
+  "name": "paij-blackjack",
+  "version": "1.0.0",
+  "description": "Phil, Abe, Ian, John blackjack game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phoniks/PAIJ-Blackjack.git"
+  },
+  "keywords": [
+    "blackjack",
+    "paij"
+  ],
+  "author": "paij",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phoniks/PAIJ-Blackjack/issues"
+  },
+  "homepage": "https://github.com/phoniks/PAIJ-Blackjack#readme"
+}
