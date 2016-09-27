@@ -1,12 +1,19 @@
+const Deck = require( '../classes/Deck.js' )
+
+
 class Dealer {
-    constructor(options){
-    this.hand = [],
-    this.bank = 250 
+    constructor( name ){
+      this.name = name
     }
-    
-    dealCard(),
-    
-    prompt(),
-    
-    
+
+    dealCard( deck, hand ) {
+      hand.addCard( deck.cards[0] )
+      deck.cards.shift()
+    }
+
+    //prompt(),
+
+
 }
+
+module.exports = Dealer

@@ -7,22 +7,34 @@
 const Player = require('../classes/Player.js')
 const Hand = require( '../classes/Hand.js' )
 const Card = require( '../classes/Card.js' )
-
+const Deck = require( '../classes/Deck.js' )
+const Dealer = require( '../classes/Dealer.js' )
 
 const testPlayer = () => {
 
 const dHand = new Hand( 'Steve' )
 const Dood = new Player( 'Steve' )
-const firstCard = new Card( 10, 'Hearts')
-const secondCard = new Card( 5, 'Spades' )
 
-dHand.addCard( firstCard )
-dHand.addCard( secondCard )
+const dealer = new Dealer( 'Cornelius' )
 
-console.log( "First hand: " + dHand.showHand() )
+const elDeck = new Deck( 2 )
 
-console.log( "Player: " + Dood.name )
-console.log( "Player Bank: " + Dood.bank )
+Dood.hit( dealer, elDeck, dHand )
+
+Dood.hit( dealer, elDeck, dHand )
+
+Dood.hit( dealer, elDeck, dHand )
+
+Dood.hit( dealer, elDeck, dHand )
+
+console.log(elDeck.cards);
+
+
+
+console.log( "Player's hand: " + dHand.showHand() )
+
+// console.log( "Player: " + Dood.name )
+// console.log( "Player Bank: " + Dood.bank )
 
 // Dood.addHand( dHand )
 // console.log( "Number of hands player has: " + Dood.getNumberOfHands() )
