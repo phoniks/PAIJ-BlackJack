@@ -1,69 +1,89 @@
+const Hand = require( '../classes/Hand.js' )
+
 class Player {
-    constructor(options) {
-    this.hand = // Instance of Hand class
+    constructor( name ) {
+    this.name = name
+    this.hands =  [] // Instance of Hand classes stored in array
     this.bank = 100
-    this.seat = options.seat
+    this.seat = 1
     }
 
     // Player decides to add a new card to their hand.
-    const hit = () => {
+    hit() {
       // invokes dealCard() on the dealer which invokes addCard() on the hand.
-    },
+      
+    }
 
     // Takes funds from player's bank and adds it the the Hand's bet variable.
-    const bet = ( option ) => {
-      if ( option = 'all-in' ) {
-        // Add this.bank to Hand's bet.
-      } else {
-        this.currentBet = option
-        this.bank -= option
+    bet(option) {
+      for ( let hand of this.hands ) {
+        hand.increaseBet( option )
       }
+      this.bank -= option
     }
 
-    // If player wishes to sit out a round.
-    const stay = () => {
+    // Player passes on taking another card.
+    stay() {
 
     }
 
-    // Doubles the player's current bet
-    const doubleDown = () => {
-      let doubledBet = this.currentBet * 2
+    // Takes the current bet from a Players Hand and doubles it.
+    doubleDown( handObj ) {
+      let doubledBet = handObj.currentBet * 2
       this.bank -= doubledBet
-    },
+    }
 
-    // If player is deal two of the same cards, splits hand into two hands.
-    const split = () => {
-      if ( this.hand[0].rank === this.hand[1].rank ) {
-        let hand1 = [this.hand[0]]
-        let hand2 = [this.hand[1]]
-        this.hand = [hand1, hand2]
-      } else {
-        return "Can only split when deal two of the same cards."
-      }
+    addHand( handObj ) {
+      this.hands.push( handObj)
+    }
+
+    // If player is dealt two of the same cards, splits hand into two hands.
+    split() {
+      // if ( this.hand.cards[0].rank === this.hand.cards[1].rank ) {
+      //
+      // }
+      let newHand1 = new Hand(this.name, this.hands[0].cards[0])
+      let newHand2 = new Hand(this.name, 5)
+      this.hands = []
+      this.addHand(newHand1)
+      this.addHand(newHand2)
+
     }
 
     // Process of buy 'insurance' incase dealer gets natural blackjack
-    const buyInsurance = () => {
+    buyInsurance() {
 
     }
 
-    //
-    const surrender = () => {
+    // If Player wishes to sit out a round.
+    surrender() {
 
     }
 
     // Calls the Card.value() function to total the value of Player's hand.
-    const handValue = (this.hand) => {
+    handValue( handObject ) {
       let total = 0
-      for ( let card in hand ) {
+      for ( let card in handObject ) {
         total += card.value()
       }
       return total
     }
 
     // Called at end of round to clear out players' hands
-    const resetHand = () => {
-      this.hand = []
+    resetHand() {
+      while( this.hands.length > 0 ){
+          this.hands.pop()
+      }
+    }
+
+    getNumberOfHands() {
+      let total = 0
+      for ( let hand in this.hands ) {
+        total++
+      }
+      return total
     }
 
 }
+
+module.exports = Player
