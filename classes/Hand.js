@@ -1,7 +1,7 @@
 class Hand {
-    constructor ( playerName, card ) {
+    constructor ( playerName ) {
     this.player = playerName
-    this.cards = [card]
+    this.cards = []
     this.currentBet = 0
   }
 
@@ -13,6 +13,14 @@ class Hand {
   // Increase the bet attatched to hand by given amount.
   increaseBet( amount ) {
     this.currentBet += amount
+  }
+
+  showHand() {
+    const disHand = []
+    for ( let card of this.cards ) {
+      disHand.push( '(' + `${card.rank}` + " of " + `${card.suit}` + ')' )
+    }
+    return disHand
   }
 
   // Invokes the value/rank of a card and adds to the total.

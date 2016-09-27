@@ -9,9 +9,9 @@ class Player {
     }
 
     // Player decides to add a new card to their hand.
-    hit() {
-      // invokes dealCard() on the dealer which invokes addCard() on the hand.
-      
+    hit( dealer, deck, hand ) {
+      dealer.dealCard( deck, hand )
+
     }
 
     // Takes funds from player's bank and adds it the the Hand's bet variable.
