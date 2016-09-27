@@ -1,14 +1,13 @@
-const Card = require('../classes/Card.js')
+const Card = require('./Card')
 
-class Deck {
-    constructor ( numberOfPlayers ) {
-      this.cards = []
-      this.numberOfDecks = numberOfPlayers
-      this.generateCards()
+class Deck{
+  constructor(){
+    this.cards = []
+    this.numberOfDecks = 2
+    this.generateCards(this.numberOfDecks)
   }
-
-  generateCards() {
-    for (var i = this.numberOfDecks; i > 0; i--) {
+  generateCards(numberOfDecks){
+    for (var i = numberOfDecks; i > 0; i--) {
       this.cards = this.cards.concat(Card.all())
     }
     this.numberOfCards = this.cards.length;
