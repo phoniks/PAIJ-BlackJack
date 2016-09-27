@@ -1,14 +1,16 @@
 class Hand {
-  constructor ( playerName, card ) {
+    constructor ( playerName, card ) {
     this.player = playerName
     this.cards = [card]
     this.currentBet = 0
   }
 
+  // Adds a card object to the hand.
   addCard( card ) {
     this.cards.push( card )
   }
 
+  // Increase the bet attatched to hand by given amount.
   increaseBet( amount ) {
     this.currentBet += amount
   }

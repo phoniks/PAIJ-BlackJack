@@ -8,10 +8,11 @@ class Player {
     this.seat = 1
     }
 
-    // // Player decides to add a new card to their hand.
-    // const hit = () => {
-    //   // invokes dealCard() on the dealer which invokes addCard() on the hand.
-    // }
+    // Player decides to add a new card to their hand.
+    hit() {
+      // invokes dealCard() on the dealer which invokes addCard() on the hand.
+      
+    }
 
     // Takes funds from player's bank and adds it the the Hand's bet variable.
     bet(option) {

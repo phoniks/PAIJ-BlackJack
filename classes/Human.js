@@ -1,3 +1,5 @@
 class Human extends Player {
-    constructor 
+    constructor( name ) {
+      
+    }
 }
