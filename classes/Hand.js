@@ -1,3 +1,5 @@
+const Card = require('./Card')
+
 class Hand {
     constructor ( playerName, card ) {
     this.player = playerName
@@ -28,4 +30,6 @@ class Hand {
 
 }
 
+const firstCard = cards
+console.log(firstCard)
 module.exports = Hand
