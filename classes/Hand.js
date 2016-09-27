@@ -1,18 +1,29 @@
 class Hand {
-  constructor () {
-    this.cards = []
+  constructor ( playerName, card ) {
+    this.player = playerName
+    this.cards = [card]
     this.currentBet = 0
-    this.player = // Variable mapped to Player class?
   }
 
-  const addCard = ( card ) => {
+  addCard( card ) {
     this.cards.push( card )
   }
 
-  const increaseBet = ( amount ) => {
+  increaseBet( amount ) {
     this.currentBet += amount
+  }
+
+  // Invokes the value/rank of a card and adds to the total.
+  handValue() {
+    let total = 0
+    for ( let card in this.cards ) {
+      total += card.value()
+    }
+    return total
   }
 
 
 
 }
+
+module.exports = Hand
