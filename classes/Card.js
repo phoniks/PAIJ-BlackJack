@@ -8,7 +8,7 @@
   const ACE = 'A'
 
   const SUITS = [SPADES, CLUBS, HEARTS, DIAMONDS]
-  const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, JACK, QUEEN, KING, ACE]
+  const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, JACK, QUEEN, KING, ACE]
   const VALUES = {
     [JACK]:   10,
     [QUEEN]:  10,
