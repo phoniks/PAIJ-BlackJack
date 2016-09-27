@@ -19,7 +19,9 @@ class AI_Player extends Player {
 
   decideToDoubleDown( handObj ) {
     if ( handObj.handValue() >= 9 && handObj.handValue() <= 11 ) {
-      return true
+      if( this.bank > 50 && currentBet < this.bank){
+        return true
+      }
     } else {
       return false
     }
