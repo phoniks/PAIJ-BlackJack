@@ -15,13 +15,14 @@ if(mode === 'y'){
   noob[0] = 'false'
 }
 
-console.log('noobMode', noob)
+// console.log('noobMode', noob)
 
-if(noob[0] === true){
+if(noob[0] === 'true'){
   console.log('expansive help')
 } else {
   console.log("minimal help")
 }
+const playerName = prompt.question('What\'s your name, player?')
 const players = []
 players.pop
 while (players < 1 || players > 4){
@@ -33,14 +34,11 @@ console.log(players)
 const seat = prompt.question('What position would you like to sit in? (1-4)')
 
 const options = {
+  name: playerName,
   players: parseInt(players),
-  decks: Math.round(players.length/2),
   seat: seat,
   noob: noob,
 }
-
-const startGame = (options) => new Game
-
 
 console.log(options)
 const start = prompt.question('Ready to begin?')

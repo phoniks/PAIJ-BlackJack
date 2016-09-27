@@ -11,7 +11,6 @@ class Player {
     // Player decides to add a new card to their hand.
     hit( dealer, deck, hand ) {
       dealer.dealCard( deck, hand )
-
     }
 
     // Takes funds from player's bank and adds it the the Hand's bet variable.

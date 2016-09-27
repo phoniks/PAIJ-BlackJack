@@ -4,14 +4,16 @@ class Round {
     this.decks = options.decks
     this.dealer = options.dealer
     }
-    
-    start(),
-    
-    checkForNatural(),
-    
-    deckIntegrity(),
-    
-    winningHand(),
-    
-    settle()
+
+    // start(),
+    //
+    // checkForNatural(),
+    //
+    // deckIntegrity(),
+    //
+    // winningHand(),
+    //
+    // settle()
 }
+
+module.exports = Round
