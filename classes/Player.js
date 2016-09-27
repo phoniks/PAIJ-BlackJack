@@ -24,7 +24,7 @@ class Player {
 
     // Player passes on taking another card.
     stay() {
-
+      return false
     }
 
     // Takes the current bet from a Players Hand and doubles it.

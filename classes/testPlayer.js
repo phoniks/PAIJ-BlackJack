@@ -27,7 +27,7 @@ Dood.hit( dealer, elDeck, dHand )
 
 Dood.hit( dealer, elDeck, dHand )
 
-console.log(elDeck.cards);
+console.log(dHand.cards[0].value());
 
 
 
