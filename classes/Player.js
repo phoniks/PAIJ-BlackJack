@@ -33,7 +33,7 @@ class Player {
     }
 
     addHand( handObj ) {
-      this.hands.push( handObj)
+      this.hands.push( handObj )
     }
 
     // If player is dealt two of the same cards, splits hand into two hands.
