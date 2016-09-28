@@ -1,5 +1,9 @@
 const Player = require('../classes/Player')
+
 const minimum = 5
+
+
+
 class AIPlayer extends Player {
   constructor(options) {
     super(options);
@@ -18,7 +22,9 @@ class AIPlayer extends Player {
      to split their hand if the condition is true. */
   decideToHit() {
     if(handObj.handValue() < 9 && handObj.handValue() < 17 ) {
-      player.hit(dealer, deck, hands[0])
+      return true
+    }else{
+      return false
     }
   }
 
@@ -50,13 +56,13 @@ class AIPlayer extends Player {
   /* AIplayer checks hand value to see if its under 17, if so, it returns true. If
     the hand's value is 17 or higher it returns false. */
 
-  decideToHit( handObj ) {
-    if ( handObj.handValue() <= 17 ) {
-      return fasle
-    } else {
-      return true
-    }
-  }
+  // decideToHit( handObj ) {
+  //   if ( handObj.handValue() <= 17 ) {
+  //     return fasle
+  //   } else {
+  //     return true
+  //   }
+  // }
 
   /* AIplayer looks at their bank and decides how much to bet, if player does not have
     enough money to bet, then returns an alert. */
