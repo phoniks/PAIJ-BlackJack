@@ -1,5 +1,8 @@
-class AI_Player extends Player {
-
+const Player = require('../classes/Player')
+class AIPlayer extends Player {
+  constructor(options) {
+    super(options);
+  }
 
   /* AIplayer looks at their hand to see if the cards are the same rank and
      to split their hand if the condition is true. */
@@ -72,3 +75,5 @@ class AI_Player extends Player {
 
 
 }
+
+module.exports = AIPlayer

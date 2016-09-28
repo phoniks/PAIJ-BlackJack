@@ -1,4 +1,5 @@
-const Player = require('../classes/Player')
+const AIPlayer = require('../classes/AIPlayer')
+const Human = require('../classes/Human')
 const Round = require('../classes/Round')
 const Deck = require('../classes/Deck')
 const Dealer = require('../classes/Dealer')
@@ -24,28 +25,29 @@ start(){
       name: this.names[i],
       seat: position
     }
-    players.push(new Player(specs ))
+    players.push(new AIPlayer(specs ))
     remaining.shift()
   }
 
   const playerSeat = this.playerSeat
 
-  const humanPlayer = new Player( {name: this.playerName, seat: parseInt(this.playerSeat)})
+  const humanPlayer = new Human( {name: this.playerName, seat: parseInt(this.playerSeat)})
   const decks = []
   decks.push(new Deck)
   players.push(humanPlayer)
 
   // console.log(decks)
 
-  const dealer = new Dealer({name: 'Dealer'})
+  const dealer = new Dealer( 'Dealer')
 
   const options = {
     players: players,
     decks: decks,
     dealer: dealer,
   }
-  
+
   const round = new Round(options)
+  console.log(round);
 }
 
 }
