@@ -1,6 +1,7 @@
 const prompt = require('readline-sync')
 const colors = require('colors')
 const Game = require('./classes/Game')
+const names = require('./lib/names')
 
 
 const mode = prompt.question('Welcome to PAIJ Blackjack! We\'re happy you decided to join us! \nIs this your first time playing our blackjack game? (y/n)')
@@ -29,22 +30,29 @@ while (players < 1 || players > 4){
   ai = prompt.question('How many AI players would you like? (1-4)')
   players.push(ai)
   }
-console.log(players)
 
 const seat = prompt.question('What position would you like to sit in? (1-4)')
+
+const  playerNames = []
+  for(let i=0; i < players - 1; i++){
+    const indexOfName = Math.floor((Math.random() * names.length - 1) + 1)
+    const name = names[indexOfName]
+    playerNames.push(name)
+  }
+
+
 
 const options = {
   name: playerName,
   players: parseInt(players),
   seat: seat,
   noob: noob,
+  names: playerNames
 }
 
-console.log(options)
 const start = prompt.question('Ready to begin?')
 if(start === 'y' || start === 'yes'){
   const game = new Game(options)
-  console.log(game)
 } else {
   prompt.question('Would you like to review the help?')
 }

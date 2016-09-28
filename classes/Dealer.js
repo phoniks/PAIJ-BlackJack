@@ -7,13 +7,13 @@ class Dealer {
     constructor( name ){
       this.name = name
       this.hand = []
+      this.seat = 4
     }
 
     dealCard( deck, hand ) {
       hand.addCard( deck.cards[0] )
       deck.cards.shift()
     }
-
     split( player ) {
       // if ( this.hand.cards[0].rank === this.hand.cards[1].rank ) {
       // }
