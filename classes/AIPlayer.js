@@ -1,5 +1,7 @@
 const Player = require('../classes/Player')
+
 const minimum = 5
+
 
 
 class AIPlayer extends Player {
