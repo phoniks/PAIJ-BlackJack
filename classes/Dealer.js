@@ -6,15 +6,14 @@ const Player = require('../classes/Player')
 
 
 
-class Dealer {
-    constructor( name ){
-      this.name = name
-      this.hand = []
-      this.seat = 4
+class Dealer extends Player{
+    constructor( options ){
+      super(options)
     }
 
     dealCard( deck, handObj ) {
-      player.hands.addCard( deck.cards[0] )
+      const cards = deck.cards
+      handObj.addCard( cards[0] )
       deck.cards.shift()
     }
     split( player ) {
