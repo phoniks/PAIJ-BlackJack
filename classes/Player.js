@@ -1,11 +1,11 @@
 const Hand = require( '../classes/Hand.js' )
 
 class Player {
-    constructor( name ) {
-    this.name = name
+    constructor( options ) {
+    this.name = options.name
     this.hands =  [] // Instance of Hand classes stored in array
     this.bank = 100
-    this.seat = 1
+    this.seat = options.seat
     }
 
     // Player decides to add a new card to their hand.

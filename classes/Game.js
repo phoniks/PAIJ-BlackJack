@@ -7,37 +7,45 @@ class Game {
     constructor(options) {
         this.playerName = options.name
         this.players = options.players         // Number of players          //Choose between 2 to 3 decks
-        this.playerSeat = parseInt(options.seat) || 0
-        this.playerIndex = [0,1,2,3].indexOf(this.playerSeat -1)
-        console.log(this.playerIndex, this.playerSeat);
-        this.remaining = [0,1,2,3].splice(this.playerIndex, 1)                   //Choice of seat
+        this.playerSeat = options.seat      //Choice of seat
         this.noob = options.noob || false //New mode
-        this.start(this.remaining);
+        this.names = options.names
+        this.start()
     }
 
-start(remaining){
-  // console.log('remaining: ',remaining)
-  const aiPlayers = []
-  for(let i=0; i < (this.players); i++){
-    let position = remaining[i]
-    aiPlayers.push(new Player({bank: 250, seat: position}))
+start(){
+  const remaining = [0,1,2,3]
+  const index = remaining.indexOf(parseInt(this.playerSeat))
+  remaining.splice(index , 1)
+  const players = []
+  for(let i= 0; i < this.players -1 ; i++){
+    let position = remaining[0]
+    const specs = {
+      name: this.names[i],
+      seat: position
+    }
+    players.push(new Player(specs ))
+    remaining.shift()
   }
 
-  const humanPlayer = new Player( {name: this.playerName, bank: 250, seat: this.playerSeat})
+  const playerSeat = this.playerSeat
+
+  const humanPlayer = new Player( {name: this.playerName, seat: parseInt(this.playerSeat)})
   const decks = []
   decks.push(new Deck)
+  players.push(humanPlayer)
+
   // console.log(decks)
 
   const dealer = new Dealer({name: 'Dealer'})
 
   const options = {
-    players: humanPlayer,
+    players: players,
     decks: decks,
     dealer: dealer,
   }
-
+  
   const round = new Round(options)
-  // console.log(round)
 }
 
 }
