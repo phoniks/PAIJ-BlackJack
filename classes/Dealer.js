@@ -9,8 +9,8 @@ class Dealer {
       this.hand = []
     }
 
-    dealCard( deck, hand ) {
-      hand.addCard( deck.cards[0] )
+    dealCard( deck, handObj ) {
+      handObj.addCard( deck.cards[0] )
       deck.cards.shift()
     }
 
@@ -46,7 +46,7 @@ class Dealer {
 
             // If option is hit, dealer deals a card to that player's hand.
             case 'hit':
-              this.dealCard( deck, player.hands[ 0 ]  )
+              this.dealCard( deck, hand )
               break
 
             case 'stay':
@@ -59,7 +59,7 @@ class Dealer {
 
             // Calls the doubleDown function on the Player class.
             case 'ddown':
-              player.doubleDown( player.hands[ 0 ] )
+              player.doubleDown( hand )
               break
           }
         }

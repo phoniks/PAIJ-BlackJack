@@ -5,7 +5,7 @@ class Round {
     this.dealer = options.dealer
     }
 
-    // start(),
+    // deal(),
     //
     // checkForNatural(),
     //
