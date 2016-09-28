@@ -9,6 +9,7 @@ const Hand = require( '../classes/Hand.js' )
 const Card = require( '../classes/Card.js' )
 const Deck = require( '../classes/Deck.js' )
 const Dealer = require( '../classes/Dealer.js' )
+const Prompt = require('../classes/Prompt.js')
 
 const testPlayer = () => {
 
@@ -18,25 +19,26 @@ const Dood = new Player( 'Steve' )
 const dealer = new Dealer( 'Cornelius' )
 
 
-
-const elDeck = new Deck( 2 )
-elDeck.shuffleRound()
-for(i = 0; i < 6; i++){
-  Dood.hit( dealer, elDeck, dHand )
-}
-
-// Dood.hit( dealer, elDeck, dHand )
+let choices = Prompt.ask( 'What is your action?(hit, stay, split, ddown): ' )
+console.log(choices)
+// const elDeck = new Deck( 2 )
+// elDeck.shuffleRound()
+// for(i = 0; i < 6; i++){
+//   Dood.hit( dealer, elDeck, dHand )
+// }
 //
-// Dood.hit( dealer, elDeck, dHand )
-//
-// Dood.hit( dealer, elDeck, dHand )
-//
-console.log(dHand.cards[0].value())
+// // Dood.hit( dealer, elDeck, dHand )
+// //
+// // Dood.hit( dealer, elDeck, dHand )
+// //
+// // Dood.hit( dealer, elDeck, dHand )
+// //
+// console.log(dHand.cards[0].value())
 
 
 
 
-console.log( "Player's hand: " + dHand.showHand() )
+// console.log( "Player's hand: " + dHand.showHand() )
 
 // console.log( "Player: " + Dood.name )
 // console.log( "Player Bank: " + Dood.bank )
