@@ -4,12 +4,14 @@
 */
 
 
-const Player = require('../classes/Player.js')
-const Hand = require( '../classes/Hand.js' )
-const Card = require( '../classes/Card.js' )
+const Card = require('../classes/Card.js')
 const Deck = require( '../classes/Deck.js' )
-const Dealer = require( '../classes/Dealer.js' )
-
+const Player = require('../classes/Player.js')
+const AIPlayer = require('../classes/AIPlayer.js')
+const Dealer = require('../classes/Dealer.js')
+const Round = require('../classes/Round.js')
+const Game = require('../classes/Game.js')
+const Prompt = require('../classes/Prompt.js')
 const testPlayer = () => {
 
 const dHand = new Hand( 'Steve' )
@@ -33,10 +35,10 @@ for(i = 0; i < 6; i++){
 //
 console.log(dHand.cards[0].value())
 
+askForNumber('choice') = prompt('What would you like your bet to bet?: ')
 
 
-
-console.log( "Player's hand: " + dHand.showHand() )
+// console.log( "Player's hand: " + dHand.showHand() )
 
 // console.log( "Player: " + Dood.name )
 // console.log( "Player Bank: " + Dood.bank )
