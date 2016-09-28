@@ -4,7 +4,7 @@ class Player {
     constructor( options ) {
     this.name = options.name
     this.hands =  [] // Instance of Hand classes stored in array
-    this.bank = 100
+    this.bank = options.bank || 100
     this.seat = options.seat
     }
 

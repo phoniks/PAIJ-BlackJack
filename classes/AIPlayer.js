@@ -1,7 +1,17 @@
 const Player = require('../classes/Player')
+const minimum = 5
 class AIPlayer extends Player {
   constructor(options) {
     super(options);
+  }
+
+
+  getBet(){
+    if(this.bank < minimum){
+      console.log(`${this.name} is broke.  Go home ${this.name}`);
+    } else {
+      return Math.floor(Math.random() * (35 - minimum) + minimum)
+    }
   }
 
   /* AIplayer looks at their hand to see if the cards are the same rank and
