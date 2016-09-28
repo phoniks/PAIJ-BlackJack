@@ -14,12 +14,9 @@ class Game {
     }
 
 start(){
-  console.log('playerseat',this.playerSeat);
   const remaining = [0,1,2,3]
   const index = remaining.indexOf(parseInt(this.playerSeat))
-  console.log('index',index);
   remaining.splice(index , 1)
-  console.log('remaining: ', remaining);
   const players = []
   for(let i= 0; i < this.players -1 ; i++){
     let position = remaining[0]
@@ -47,7 +44,7 @@ start(){
     decks: decks,
     dealer: dealer,
   }
-  console.log(players);
+  
   const round = new Round(options)
 }
 
