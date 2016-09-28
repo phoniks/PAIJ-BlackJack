@@ -10,7 +10,7 @@ class Dealer {
     }
 
     dealCard( deck, handObj ) {
-      handObj.addCard( deck.cards[0] )
+      player.hands.addCard( deck.cards[0] )
       deck.cards.shift()
     }
 
@@ -32,12 +32,12 @@ class Dealer {
     /* TODO May need to add a check if the current player is Human or AI. */
         //  if ( player.constructor != AIPlayer ) )
 
-        let choice = prompt('What would you like your bet to bet?: ')
+        askForNumber('choice') = prompt('What would you like your bet to bet?: ')
 
-      /* Calls the bet function on the player class to allow easy altering of player's bank. */
+        /* Calls the bet function on the player class to allow easy altering of player's bank. */
         player.bet( choice )
 
-        let choices = prompt( 'What is your action?(hit, stay, split, ddown): ' )
+        ask('choices') = prompt( 'What is your action?(hit, stay, split, ddown): ' )
 
         /* For loop to run to catch incase a player has multiple hands and
            performs the prompts for each hand. */
