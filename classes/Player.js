@@ -1,4 +1,11 @@
-const Hand = require( '../classes/Hand.js' )
+const Card = require('../classes/Card.js')
+const Deck = require( '../classes/Deck.js' )
+const AIPlayer = require('../classes/AIPlayer.js')
+const Hand = require('../classes/Hand.js')
+const Dealer = require('../classes/Dealer.js')
+const Round = require('../classes/Round.js')
+const Game = require('../classes/Game.js')
+const Prompt = require('../classes/Prompt.js')
 
 class Player {
     constructor( options ) {

@@ -1,7 +1,11 @@
+const Card = require('../classes/Card.js')
 const Deck = require( '../classes/Deck.js' )
+const Player = require('../classes/Player.js')
+const AIPlayer = require('../classes/AIPlayer.js')
 const Hand = require('../classes/Hand.js')
-const Player = require('../classes/Player')
-
+const Round = require('../classes/Round.js')
+const Game = require('../classes/Game.js')
+const Prompt = require('../classes/Prompt.js')
 
 class Dealer {
     constructor( name ){
@@ -26,8 +30,7 @@ class Dealer {
 
     playerTurn( players ){
       for( let player of this.players ) {
-        // this.player.hand
-        // this.player.bank
+
 
     /* TODO May need to add a check if the current player is Human or AI. */
         //  if ( player.constructor != AIPlayer ) )
@@ -46,7 +49,7 @@ class Dealer {
 
             // If option is hit, dealer deals a card to that player's hand.
             case 'hit':
-              this.dealCard( deck, hand )
+              this.player.hands.hit( dealer, deck, hand )
               break
 
             case 'stay':
@@ -54,12 +57,12 @@ class Dealer {
 
             // The dealer splits the player's current hand.
             case 'split':
-              this.split( player )
+              this.player.hands.split( player )
               break
 
             // Calls the doubleDown function on the Player class.
             case 'ddown':
-              player.doubleDown( hand )
+              this.player.hands.doubleDown( handObj )
               break
           }
         }
