@@ -3,6 +3,13 @@ class AI_Player extends Player {
 
   /* AIplayer looks at their hand to see if the cards are the same rank and
      to split their hand if the condition is true. */
+  decideToHit() {
+    if(handObj.handValue() < 9 && handObj.handValue() < 17 ) {
+      player.hit(dealer, deck, hands[0])
+    }
+  }
+
+
   decideToSplit() {
     for ( let hand in this.hands ) {
       if ( hand[0].rank === hand[1] ) {
@@ -51,6 +58,17 @@ class AI_Player extends Player {
     }
   }
 
+  logicStream() {
+    if(decideToSplit() === true) {
+      return choices = 'split'
+    }else if(decideToDoubleDown() === true){
+      return choices = 'ddown'
+    }else if(decideToHit() === true){
+      return choices = 'hit'
+    }else{
+      return choices = 'stay'
+    }
+  }
 
 
 }
