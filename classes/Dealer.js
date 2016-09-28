@@ -3,9 +3,6 @@ const Deck = require( '../classes/Deck.js' )
 const Hand = require('../classes/Hand.js')
 const Player = require('../classes/Player')
 
-
-
-
 class Dealer extends Player{
     constructor( options ){
       super(options)
@@ -32,14 +29,10 @@ class Dealer extends Player{
     playerTurn( players ){
       for( let player of this.players ) {
 
-
-    /* TODO May need to add a check if the current player is Human or AI. */
-
-
         /* For loop to run to catch incase a player has multiple hands and
            performs the prompts for each hand. */
         for ( let hand in player.hands ) {
-          if ( player instanceof = Human ) ){
+          if ( player instanceof Human ) {
             let choices = prompt.ask( 'What is your action?(hit, stay, split, ddown): ' )
           }else{
             let choices = player.logicStream()

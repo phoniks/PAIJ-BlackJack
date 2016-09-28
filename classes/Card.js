@@ -50,8 +50,6 @@ class Card{
     }
 
 
-
-
  Card.SUITS     = SUITS
  Card.RANKS     = RANKS
  Card.HEARTS    = HEARTS

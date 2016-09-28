@@ -1,6 +1,5 @@
 const rl = require('readline-sync')
 const chalk = require('chalk')
-
 const colors = require('colors')
 
 module.exports = {
