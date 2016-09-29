@@ -28,10 +28,11 @@ class AIPlayer extends Player {
   }
 
   decideToSplit() {
-    for ( let hand of this.hands ) {
-      console.log(hand.cards);
-      if ( hand.cards[0].rank === hand.cards[1].rank ) {
-        if(hand.cards[0].value() === 10 ) {
+    for ( let hand in this.hands ) {
+      const splittable = this.hands[hand]
+      console.log(hand);
+      if ( splittable.cards[0].rank === splittable.cards[1].rank ) {
+        if(splittable.cards[0].value() === 10 ) {
           return true
         }
       } else {

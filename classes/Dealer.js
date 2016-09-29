@@ -2,9 +2,10 @@
 const Deck = require( '../classes/Deck.js' )
 const Hand = require('../classes/Hand.js')
 const Player = require('../classes/Player')
+const AIPlayer = require('../classes/AIPlayer')
 const Human = require('../classes/Human')
 const prompt = require('../classes/Prompt')
-const AIPlayer = require( '../classes/AIPlayer' )
+
 
 
 class Dealer extends AIPlayer{

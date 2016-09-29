@@ -32,7 +32,7 @@ class Hand {
   showHand() {
     const disHand = []
     for ( let card of this.cards ) {
-      disHand.push( '(' + `${card.rank}` + " of " + `${card.suit}` + ')' )
+      disHand.push(`${card.rank}` + " " + `${card.suit}` )
     }
     return disHand
   }
@@ -55,7 +55,11 @@ class Hand {
     return this.handValue() > 21
   }
 
-
+  checkForNatural(){
+    if(this.cards.length === 2 && this.handValue() === 21){
+      return true
+    }
+  }
 
 
 }
