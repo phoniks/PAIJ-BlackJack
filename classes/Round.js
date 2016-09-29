@@ -19,7 +19,6 @@ start(players){
   this.takeBets(players)
   this.deal(players)
   this.dealer.playerTurn(players, this.decks[0])
-  console.log(players);
 }
 
 createHands(players){

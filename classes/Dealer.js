@@ -16,6 +16,7 @@ class Dealer extends Player{
       handObj.addCard( cards[0] )
       deck.cards.shift()
     }
+
     split( player, hand ) {
         if (hand.cards[0].rank === hand.cards[1].rank ) {
 
@@ -32,16 +33,15 @@ class Dealer extends Player{
     playerTurn( players, deck ){
       let choices = ''
       for( let player of players ) {
-        console.log(    'youve reached playerTurn'    );
         /* For loop to run to catch incase a player has multiple hands and
            performs the prompts for each hand. */
            const hands = player.hands
-           console.log(player);
         for ( let hand of hands ) {
-          console.log('You made it to the loop');
           if ( player instanceof Human ) {
             console.log('this is a human prompt');
             while(!hand.isBust() && hand.stay === false){
+              console.log(hand.showHand())
+              console.log( "Hand Value: " + hand.handValue() )
               choices = prompt.ask( 'What is your action?(hit, stay, split, ddown): ' )
               this.signalDealer(choices, hand, deck, player)
             }
@@ -55,14 +55,12 @@ class Dealer extends Player{
     }
   }
     signalDealer(choices, hand, deck, player){
-        console.log('signal',deck);
         switch( choices ) {
 
             // If option is hit, dealer deals a card to that player's hand.
             case 'hit':
-                console.log('switch', deck);
               this.dealCard( deck, hand )
-              hand.showHand
+              //hand.showHand()
               break
 
             case 'stay':
@@ -76,7 +74,12 @@ class Dealer extends Player{
 
             // Calls the doubleDown function on the Player class.
             case 'ddown':
+              if ( hand.doubledDown ) {
+                console.log("Can only double down once.")
+              } else {
               player.doubleDown( hand )
+              this.dealCard( deck, hand )
+            }
               break
           }
         }

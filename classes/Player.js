@@ -28,9 +28,16 @@ class Player {
 
     // Takes the current bet from a Players Hand and doubles it.
     doubleDown( handObj ) {
-      let doubledBet = handObj.currentBet * 2
-      this.bank -= doubledBet
-    }
+          console.log(" -----> Double Down!! <----- ")
+          console.log("Player bank before... " + this.bank)
+          this.bank -= handObj.currentBet
+          let doubledBet = handObj.currentBet * 2
+          handObj.currentBet = doubledBet
+          handObj.doubledDown = true
+
+          console.log("New bet on hand: " + handObj.currentBet)
+          console.log(this.bank)
+        }
 
     addHand( handObj ) {
       this.hands.push( handObj )
