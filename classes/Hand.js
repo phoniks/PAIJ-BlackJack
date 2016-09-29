@@ -21,7 +21,7 @@ class Hand {
   checkForAce() {
     let aceInHand = false
     for ( let card of this.cards ){
-      if ( card.isAce ) {
+      if ( card.isAce() ) {
         aceInHand = true
       }
     }
@@ -44,8 +44,10 @@ class Hand {
     }
     if ( total > 21 && this.checkForAce() ) {
       total -= 10
-    }
+      return total
+    } else {
     return total
+    }
   }
 
   isBust(){

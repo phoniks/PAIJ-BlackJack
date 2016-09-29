@@ -25,7 +25,6 @@ createHands(players){
   players.forEach(player => {
     player.addHand(new Hand(player.name))
   })
-  this.dealer.addHand(new Hand('Dealer'))
 }
 
 takeBets(players){
@@ -49,6 +48,7 @@ deal(players){
       let hand = player.hands[0]
       this.dealer.dealCard(deck, hand)
     })
+    //this.dealer.dealCard( this.decks[0], this.hands[0] )
   }
 }
 
