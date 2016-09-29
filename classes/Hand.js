@@ -5,6 +5,7 @@ class Hand {
     this.currentBet = 0
     this.stay = false
     this.doubledDown = false
+    this.beenSplit = false
   }
 
   // Adds a card object to the hand.
