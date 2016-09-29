@@ -39,7 +39,7 @@ start(){
   // console.log(decks)
 
   const dealer = new Dealer( {name:'Dealer', bank: 1000, seat: 4})
-  players.push( dealer )
+  players.push(dealer)
   const options = {
     players: players,
     decks: decks,

@@ -3,7 +3,7 @@ const Hand = require( '../classes/Hand.js' )
 class Player {
     constructor( options ) {
     this.name = options.name
-    this.hands =  [] // Instance of Hand classes stored in array
+    this.hands =  options.hand || [] // Instance of Hand classes stored in array
     this.bank = options.bank || 100
     this.seat = options.seat
     }
@@ -28,16 +28,9 @@ class Player {
 
     // Takes the current bet from a Players Hand and doubles it.
     doubleDown( handObj ) {
-          console.log(" -----> Double Down!! <----- ")
-          console.log("Player bank before... " + this.bank)
-          this.bank -= handObj.currentBet
-          let doubledBet = handObj.currentBet * 2
-          handObj.currentBet = doubledBet
-          handObj.doubledDown = true
-
-          console.log("New bet on hand: " + handObj.currentBet)
-          console.log(this.bank)
-        }
+      let doubledBet = handObj.currentBet * 2
+      this.bank -= doubledBet
+    }
 
     addHand( handObj ) {
       this.hands.push( handObj )
