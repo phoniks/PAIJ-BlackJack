@@ -47,7 +47,6 @@ start(){
   }
 
   const round = new Round(options)
-  console.log(round);
 }
 
 }
