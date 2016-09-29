@@ -3,6 +3,7 @@ class Hand {
     this.player = playerName
     this.cards = []
     this.currentBet = 0
+    this.stay = false 
   }
 
   // Adds a card object to the hand.
@@ -26,11 +27,16 @@ class Hand {
   // Invokes the value/rank of a card and adds to the total.
   handValue() {
     let total = 0
-    for ( let card in this.cards ) {
+    for ( let card of this.cards ) {
       total += card.value()
     }
     return total
   }
+
+  isBust(){
+    return this.handValue() > 21
+  }
+
 
 
 

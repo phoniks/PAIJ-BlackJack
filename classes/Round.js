@@ -18,6 +18,8 @@ start(players){
   this.createHands(players)
   this.takeBets(players)
   this.deal(players)
+  this.dealer.playerTurn(players, this.decks[0])
+  console.log(players);
 }
 
 createHands(players){
@@ -42,12 +44,15 @@ deckIntegrity(decks){
 }
 
 deal(players){
-  players.forEach(player =>{
-    let deck = this.decks[0]
-    let hand = player.hands[0]
-    this.dealer.dealCard(deck, hand)
-  })
+  for(let i=0; i<2; i++){
+    players.forEach(player =>{
+      let deck = this.decks[0]
+      let hand = player.hands[0]
+      this.dealer.dealCard(deck, hand)
+    })
+  }
 }
+
 
 checkForNatural(){
 

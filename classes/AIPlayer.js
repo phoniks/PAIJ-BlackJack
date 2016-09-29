@@ -18,17 +18,20 @@ class AIPlayer extends Player {
   /* AIplayer looks at their hand to see if the cards are the same rank and
      to split their hand if the condition is true. */
   decideToHit() {
-    if(handObj.handValue() < 9 && handObj.handValue() < 17 ) {
-      return true
-    }else{
-      return false
+    for ( let hand of this.hands ) {
+      if(hand.handValue() < 9 && hand.handValue() < 17 ) {
+        return true
+      }else{
+        return false
+      }
     }
   }
 
   decideToSplit() {
-    for ( let hand in this.hands ) {
-      if ( hand[0].rank === hand[1].rank ) {
-        if(hand[0].value() === 10 ) {
+    for ( let hand of this.hands ) {
+      console.log(hand.cards);
+      if ( hand.cards[0].rank === hand.cards[1].rank ) {
+        if(hand.cards[0].value() === 10 ) {
           return true
         }
       } else {
@@ -41,15 +44,17 @@ class AIPlayer extends Player {
   /* AIplayer checks to see if his hand value is between 9 and 11 and decides
     whether or not to double down on that hand in question. */
 
-  decideToDoubleDown( handObj ) {
-    if ( handObj.handValue() >= 9 && handObj.handValue() <= 11 ) {
-      if( this.bank > 50 && currentBet < this.bank){
-        return true
+  decideToDoubleDown(  ) {
+    for ( let hand of this.hands ) {
+      if ( hand.handValue() >= 9 && hand.handValue() <= 11 ) {
+        if( this.bank > 50 && hand.currentBet < this.bank){
+          return true
+        }
+      } else {
+        return false
       }
-    } else {
-      return false
-    }
   }
+}
   /* AIplayer looks at their bank and decides how much to bet, if player does not have
     enough money to bet, then returns an alert. */
 
@@ -64,14 +69,14 @@ class AIPlayer extends Player {
   }
 
   logicStream() {
-    if(decideToSplit() === true) {
-      return choices = 'split'
-    }else if(decideToDoubleDown() === true){
-      return choices = 'ddown'
-    }else if(decideToHit() === true){
-      return choices = 'hit'
+    if(this.decideToSplit()) {
+      return 'split'
+    }else if(this.decideToDoubleDown()){
+      return 'ddown'
+    }else if(this.decideToHit()){
+      return  'hit'
     }else{
-      return choices = 'stay'
+      return 'stay'
     }
   }
 
