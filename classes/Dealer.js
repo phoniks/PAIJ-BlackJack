@@ -52,7 +52,7 @@ class Dealer extends AIPlayer{
 
           if ( player instanceof Human ) {
 
-            while(!hands[hand].isBust() && hands[hand].stay === false){
+            while(!hands[hand].isBust && !hands[hand].stay){
               console.log( "Other players' hands: " )
 
     //TODO Needs to handle multiple hand displays.
@@ -79,10 +79,10 @@ class Dealer extends AIPlayer{
 
           }else{
               let elPlayer = players[p]
-            while( !hands[hand].isBust() && hands[hand].stay === false ){
-              choices = player.logicStream()
-              this.signalDealer(choices, hands[hand], deck, player)
-          }
+            do {
+                choices = player.logicStream()
+                this.signalDealer(choices, hands[hand], deck, player)
+            }while( !hands[hand].isBust && !hands[hand].stay)
         }
       }
     }
@@ -101,10 +101,10 @@ class Dealer extends AIPlayer{
               break
 
             // The dealer splits the player's current hand.
-            case 'split':
-            console.log("Hand to be split: " + hand.showHand())
-              this.split( player, hand )
-              break
+            // case 'split':
+            // console.log("Hand to be split: " + hand.showHand())
+            //   this.split( player, hand )
+            //   break
 
             // Calls the doubleDown function on the Player class.
             case 'ddown':

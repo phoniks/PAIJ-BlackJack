@@ -6,12 +6,14 @@ class Hand {
     this.stay = false
     this.doubledDown = false
     this.beenSplit = false
+    this.isBust = false
   }
 
   // Adds a card object to the hand.
   addCard( card ) {
     console.log(card)
     this.cards.push( card )
+    this.handValue()
   }
 
   // Increase the bet attatched to hand by given amount.
@@ -43,17 +45,18 @@ class Hand {
     for ( let card of this.cards ) {
       total += card.value()
     }
-    if ( total > 21 && this.checkForAce() ) {
-      total -= 10
+    if ( total > 21 ) {
+      if (this.checkForAce()){
+        total -= 10
+      }else{
+        this.isBust = true
+      }
       return total
     } else {
     return total
     }
   }
 
-  isBust(){
-    return this.handValue() > 21
-  }
 
   checkForNatural(){
     if(this.cards.length === 2 && this.handValue() === 21){

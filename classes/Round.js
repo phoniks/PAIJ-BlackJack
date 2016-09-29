@@ -107,21 +107,23 @@ naturalPush(){
 }
   settle(){
     this.naturalPush()
+    console.log('dealer has '+this.dealer.hands[0].showHand())
+    this.players.forEach(player =>{
+      player.hands.forEach(hand =>{
+        if(hand.player !== "Dealer" && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue()){
+          player.bank += player.currentBet * 2
+          console.log(player.name+' wins!!!')
+        } else if (hand.player !== "Dealer" &&hand.handValue() === this.dealer.hands[0].handValue()){
+          player.bank += player.currentBet
+          console.log(player.name+' pushed with '+hand.showHand()+'. At least they didnt lose any money!')
+        } else if(hand.player !== "Dealer"){
+          console.log(player.name+' lost with'+hand.showHand())
+        }
+      })
+    })
   }
 
 
-    // this.players.forEach(player =>{
-    //   player.hands.forEach(hand =>{
-    //     if(hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue()){
-    //       player.bank += player.currentBet * 2
-    //       console.log(player.name+' wins!!!')
-    //     } else if (hand.handValue === this.dealer.hands[0].handValue){
-    //       player.bank += player.currentBet
-    //       console.log(player.name+' pushed with '+hand.showHand()+'. At least they didnt lose any money!')
-    //     } else {
-    //       console.log(player.name+' lost with')
-    //     }
-    //   })
-    // })
+
 }
 module.exports = Round

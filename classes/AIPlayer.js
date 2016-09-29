@@ -30,7 +30,6 @@ class AIPlayer extends Player {
   decideToSplit() {
     for ( let hand in this.hands ) {
       const splittable = this.hands[hand]
-      console.log(hand);
       if ( splittable.cards[0].rank === splittable.cards[1].rank ) {
         if(splittable.cards[0].value() === 10 ) {
           return true
@@ -71,10 +70,10 @@ class AIPlayer extends Player {
 
   logicStream() {
     console.log("-------------------> Logic Stream ");
-    if(this.decideToSplit()) {
-      console.log("AI is splitting.");
-      return 'split'
-    }else if(this.decideToDoubleDown()){
+    // if(this.decideToSplit()) {
+    //   console.log("AI is splitting.");
+    //   return 'split'
+    if(this.decideToDoubleDown()){
       console.log("AI is doubling down.");
       return 'ddown'
     }else if(this.decideToHit()){
