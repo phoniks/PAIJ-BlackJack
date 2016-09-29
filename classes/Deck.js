@@ -5,6 +5,7 @@ class Deck{
     this.cards = []
     this.numberOfDecks = 2
     this.generateCards(this.numberOfDecks)
+    this.shuffled = false
   }
 
   /*Receives the number of decks and generates a deck then
@@ -27,7 +28,7 @@ class Deck{
   shuffleGame() {
     var cardCount = this.cards.length
 
-    if (cardCount !== this.numberOfCards){
+    if (cardCount !== this.numberOfCards && !this.shuffled ){
       throw new Error('refusing to shuffle partial deck');
     }
 
@@ -37,6 +38,7 @@ class Deck{
       var temp = this.cards[ index ]
       this.cards[ index ] = this.cards[ randomIndex ]
       this.cards[ randomIndex ] = temp
+      this.shuffled = true
     }
   }
 

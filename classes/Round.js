@@ -4,9 +4,11 @@ const prompt = require('../classes/Prompt')
 const forBet = 'How much would you like to bet'
 const Hand = require('../classes/Hand')
 const Deck = require('../classes/Deck')
+const Game = require('../classes/Game')
 
 class Round {
-    constructor(options){
+    constructor( game, options ){
+    this.game = game
     this.players = options.players
     this.decks = options.decks
     this.dealer = options.dealer
@@ -14,12 +16,14 @@ class Round {
     }
 
 start(players){
-  this.decks[0].shuffleGame()
+  if (!this.decks.shuffled){this.decks.shuffleGame()}
+  else {this.decks.shuffleRound() }
   this.createHands(players)
   this.takeBets(players)
   this.deal(players)
-  this.dealer.playerTurn(players, this.decks[0])
+  this.dealer.playerTurn(players, this.decks)
   this.settle()
+  //playAgain(this.decks)
 }
 
 createHands(players){
@@ -45,13 +49,10 @@ createHands(players){
     })
   }
 
-  deckIntegrity(decks){
-  }
-
   deal(players){
     for(let i=0; i<2; i++){
       players.forEach(player =>{
-        let deck = this.decks[0]
+        let deck = this.decks
         let hand = player.hands[0]
         this.dealer.dealCard(deck, hand)
       })
@@ -121,9 +122,32 @@ naturalPush(){
         }
       })
     })
+    this.players.forEach( zplayer => { zplayer.resetHand() } )
   }
 
+playAgain(deck){
+  let playAgain = prompt.ask('Would you like to play again?')
+  if(playAgain == true || playAgain == 'y' || playAgain == 'yes'){
+
+    console.log(deck);
+    let options = {
+      players: this.players,
+      deck: deck,
+      dealer: this.dealer,
+    }
+    const anotherOne = Game.newRound( options )
+    console.log(anotherOne);
+  }
+}
 
 
 }
 module.exports = Round
+
+// this.players.forEach(player =>{
+//   player.hands.forEach(hand=>{
+//     hand.cards.forEach(card=> {
+//       this.decks[0].cards.push(card)
+//     })
+//   })
+// })
