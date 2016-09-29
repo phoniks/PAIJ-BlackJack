@@ -107,17 +107,20 @@ naturalPush(){
 }
   settle(){
     this.naturalPush()
-    console.log('dealer has '+this.dealer.hands[0].showHand())
+
     this.players.forEach(player =>{
       player.hands.forEach(hand =>{
-        if(hand.player !== "Dealer" && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue()){
-          player.bank += player.currentBet * 2
-          console.log(player.name+' wins!!!')
-        } else if (hand.player !== "Dealer" &&hand.handValue() === this.dealer.hands[0].handValue()){
+        if(hand.player !== "Dealer" && hand.handValue() <= 21){
+          if(hand.handValue() > this.dealer.hands[0].handValue()){
+            player.bank += player.currentBet * 2
+            console.log('Dealer has '+this.dealer.hands[0].showHand() + " > " + hand.handValue())
+            console.log(player.name+' wins!!!: ' +hand.showHand() + " > " + hand.handValue())
+          }
+        } else if (hand.player !== "Dealer: " &&hand.handValue() === this.dealer.hands[0].handValue()){
           player.bank += player.currentBet
-          console.log(player.name+' pushed with '+hand.showHand()+'. At least they didnt lose any money!')
+          console.log(player.name+' pushed with: '+hand.showHand()+'. At least they didnt lose any money!')
         } else if(hand.player !== "Dealer"){
-          console.log(player.name+' lost with'+hand.showHand())
+          console.log(player.name+' lost with: '+hand.showHand() + " > " + hand.handValue())
         }
       })
     })

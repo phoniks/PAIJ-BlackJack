@@ -57,7 +57,7 @@ class Dealer extends AIPlayer{
 
     //TODO Needs to handle multiple hand displays.
               players.forEach( playerz => {
-                console.log(playerz.hands[0].showHand() + " > " + playerz.hands[0].handValue() )
+                console.log(playerz.name + ':   ' + playerz.hands[0].showHand() + " > " + playerz.hands[0].handValue() )
               })
                 console.log("\n")
 

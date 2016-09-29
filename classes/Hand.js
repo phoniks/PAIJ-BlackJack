@@ -34,7 +34,7 @@ class Hand {
   showHand() {
     const disHand = []
     for ( let card of this.cards ) {
-      disHand.push(`${card.rank}` + " " + `${card.suit}` )
+      disHand.push(`${card.rank}` + " " + `${card.suit}` + '  ' )
     }
     return disHand
   }
