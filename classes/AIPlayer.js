@@ -19,7 +19,7 @@ class AIPlayer extends Player {
      to split their hand if the condition is true. */
   decideToHit() {
     for ( let hand of this.hands ) {
-      if(hand.handValue() < 9 && hand.handValue() < 17 ) {
+      if( hand.handValue() < 17 ) {
         return true
       }else{
         return false
@@ -69,13 +69,18 @@ class AIPlayer extends Player {
   }
 
   logicStream() {
+    console.log("-------------------> Logic Stream ");
     if(this.decideToSplit()) {
+      console.log("AI is splitting.");
       return 'split'
     }else if(this.decideToDoubleDown()){
+      console.log("AI is doubling down.");
       return 'ddown'
     }else if(this.decideToHit()){
+      console.log("AI is taking a hit.");
       return  'hit'
     }else{
+      console.log("AI is going to stay.")
       return 'stay'
     }
   }
