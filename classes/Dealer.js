@@ -80,7 +80,7 @@ class Dealer extends AIPlayer{
 
               if ( players[p].hands[1] ) {console.log(players[p].hands[1].handValue() ) }
 
-              choices = prompt.ask( 'What is your action?(hit, stay, split, ddown): ' )
+              choices = prompt.ask( 'What is your action?(hit, stay, split, ddown, surrender): ' )
               this.signalDealer(choices, hands[hand], deck, players[p])
             }
 
@@ -126,6 +126,16 @@ class Dealer extends AIPlayer{
               hand.stay = true
             }
               break
+
+            case 'surrender':
+
+
+              player.surrender( hand )
+              hand.stay = true
+              
+
+
+            break
           }
         }
 

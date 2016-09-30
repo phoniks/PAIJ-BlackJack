@@ -6,6 +6,8 @@ class Player {
     this.hands =  options.hand || [] // Instance of Hand classes stored in array
     this.bank = options.bank || 100
     this.seat = options.seat
+    this.surrendered = false
+
     }
 
     // Player decides to add a new card to their hand.
@@ -55,8 +57,10 @@ class Player {
     }
 
     // If Player wishes to sit out a round.
-    surrender() {
-
+    surrender( handObj ) {
+      let returnBet = handObj.currentBet / 2
+      this.bank += returnBet
+      this.surrendered = true
     }
 
     // Calls the Card.value() function to total the value of Player's hand.
