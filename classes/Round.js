@@ -120,7 +120,7 @@ class Round {
             console.log(player.name + ' Surrenders!!!')
           }else{
 
-            if( hand.player !== 'Dealer' && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue() && !this.dealer.hands[0].isBust ){
+            if( hand.player !== 'Dealer' && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue() && !this.dealer.hands[0].isBust || hand.isBlackjack){
               player.bank += hand.currentBet * 2
             console.log(player.name+' wins!!!')
 
