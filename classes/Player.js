@@ -10,6 +10,9 @@ class Player {
 
     // Player decides to add a new card to their hand.
     hit( dealer, deck, hand ) {
+      hand.insurable = false
+      hand.canSurrender = false
+      hand.canDoubleDown = false
       dealer.dealCard( deck, hand )
     }
 
@@ -28,6 +31,7 @@ class Player {
 
     // Takes the current bet from a Players Hand and doubles it.
     doubleDown( handObj ) {
+      handObj.canDoubleDown = false
       let doubledBet = handObj.currentBet * 2
       this.bank -= doubledBet
     }
