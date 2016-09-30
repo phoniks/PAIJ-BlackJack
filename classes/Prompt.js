@@ -10,6 +10,8 @@ const colors = require('colors')
 const promptColor = chalk.red
 const cardColor = chalk.bgWhite.black
 const valueColor = chalk.yellow
+const turnColor = chalk.magenta
+const bankColor = chalk.cyan
 
 module.exports = {
   ask: (question) =>{
@@ -24,6 +26,7 @@ module.exports = {
     console.log( promptColor( "___________________________") )
     console.log( "Your Hand: " + cardColor( player.hands[0].showHand() ) )
     console.log( "Hand Value: " + valueColor( player.hands[0].handValue() ) )
+    console.log( "Bank: " + bankColor( player.bank ) )
     console.log( promptColor( "---------------------------") )
   },
 
@@ -40,6 +43,10 @@ module.exports = {
 
   dealerCard: dealer => {
     console.log( "Dealer's card: " + cardColor(dealer.hands[0].showDealerCard()) )
+  },
+
+  aiTurn: player => {
+    console.log("------------------->  ")
   }
 
 }
