@@ -10,6 +10,8 @@ class Hand {
     this.doubledDown = false
     this.beenSplit = false
     this.isBust = false
+    this.insurable = true
+    this.canSurrender = true
   }
 
   // Adds a card object to the hand.
