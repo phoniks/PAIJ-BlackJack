@@ -61,7 +61,7 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
   return choiceOptions
 }
 
-canInsure(){
+  canInsure(){
   const card = this.hands[0].cards[1]
   if(card.isAce()){
     return true
@@ -76,7 +76,11 @@ canInsure(){
            performs the prompts for each hand. */
            const hands = players[p].hands
            const player = players[p]
-
+          hands.forEach(hand => {
+            if(hand.checkForNatural()){
+              hand.isBlackjack = true
+            }
+          })
         for ( let hand in hands ) {
 
           if ( player instanceof Human ) {
