@@ -1,5 +1,7 @@
 const chalk = require('chalk')
 const colors = require('colors')
+const cardColor = chalk.bgWhite.black
+const valueColor = chalk.yellow
 
 class Hand {
     constructor ( playerName ) {
@@ -16,7 +18,7 @@ class Hand {
 
   // Adds a card object to the hand.
   addCard( card ) {
-    console.log(card.toString())
+    console.log( cardColor( card.toString() + ' ' ) + "\n")
     this.cards.push( card )
     this.handValue()
   }
@@ -41,8 +43,6 @@ class Hand {
     for ( let card of this.cards ) {
       disHand.push( `${card.rank}` + `${card.suit}` + ' ')
     }
-    let handTotal = this.handValue()
-    disHand.push( handTotal  )
     return disHand
   }
 
