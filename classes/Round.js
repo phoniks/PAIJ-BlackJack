@@ -110,7 +110,7 @@ class Round {
   }
     settle(){
       this.naturalPush()
-      console.log('dealer has '+this.dealer.hands[0].showHand())
+      console.log('dealer has ' + cardColor(this.dealer.hands[0].showHand() ) + " > " + this.dealer.hands[0].handValue() )
 
 
       this.players.forEach(player =>{

@@ -58,16 +58,17 @@ class Hand {
   // Invokes the value/rank of a card and adds to the total.
   handValue() {
     let total = 0
+
     for ( let card of this.cards ) {
       total += card.value()
     }
+
     if ( total > 21 ) {
       if (this.checkForAce()){
         total -= 10
-      }else{
+      } else {
         this.isBust = true
-      }
-      return total
+      } return total
     } else {
     return total
     }

@@ -81,13 +81,13 @@ canInsure(){
 
           if ( player instanceof Human ) {
 
-            while(!hands[hand].isBust && !hands[hand].stay){
+            while( !hands[ hand ].isBust && !hands[ hand ].stay ) {
 
               prompt.otherHands( players )
               prompt.dealerCard( this )
               prompt.playerPrompt( player )
 
-              if ( players[p].hands[1] ) {console.log(players[p].hands[1].handValue() ) }
+              if ( players[p].hands[1] ) { console.log( players[ p ].hands[ 1 ].handValue() ) }
 
 
               choices = prompt.ask( this.choiceString(hands[hand]) )
@@ -111,7 +111,7 @@ canInsure(){
             case 'hit':
             case 'h':
               this.dealCard( deck, hand )
-              //hand.showHand()
+              hand.showHand()
               break
 
             case 'stay':
