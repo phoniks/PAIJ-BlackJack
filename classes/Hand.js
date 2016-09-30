@@ -9,11 +9,14 @@ class Hand {
     this.cards = []
     this.currentBet = 0
     this.stay = false
+    this.canDoubleDown = true
     this.doubledDown = false
     this.beenSplit = false
     this.isBust = false
     this.insurable = true
     this.surrendered = false
+    this.insured = false
+    this.canSurrender = true
   }
 
   // Adds a card object to the hand.
@@ -70,6 +73,15 @@ class Hand {
     }
   }
 
+  splittable(){
+    if ( this.cards[0].rank === this.cards[1].rank ) {
+      if(this.cards[0].value() === 10 ) {
+        return true
+      }
+    } else {
+      return false
+    }
+  }
 
   checkForNatural(){
     if(this.cards.length === 2 && this.handValue() === 21){
