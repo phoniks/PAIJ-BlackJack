@@ -51,7 +51,7 @@ class Dealer extends AIPlayer{
 choiceString(hand){
 let choiceOptions = 'What is your action? [h]it, [s]tay'
   switch (true) {
-    case hand.insurable === true :
+    case this.canInsure() === true :
       choiceOptions += ', [i]nsure'
     case hand.canSurrender === true:
       choiceOptions += ', su[r]render'
@@ -61,6 +61,12 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
   return choiceOptions
 }
 
+canInsure(){
+  const card = this.hands[0].cards[1]
+  if(card.isAce()){
+    return true
+  }
+}
 
 
     playerTurn( players, deck ){
@@ -142,9 +148,10 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
               break
 
             case 'surrender':
+            case 'r':
 
 
-              player.surrender( hand )
+              hand.surrendered = true
               hand.stay = true
 
 

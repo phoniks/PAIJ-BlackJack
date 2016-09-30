@@ -83,7 +83,16 @@ class Hand {
     }
   }
 
-  canDouble() => this.cards.length <= 2 && this.player.bank >= (this.bet *2)
+  canDouble() {
+    this.cards.length <= 2 && this.player.bank >= (this.bet *2)
+  }
+
+canInsure(){
+  const card = this.showDealerCard()
+  if(card[0].isAce()){
+    return true
+  }
+}
 
   checkForNatural(){
     if(this.cards.length === 2 && this.handValue() === 21){

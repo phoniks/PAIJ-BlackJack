@@ -116,7 +116,7 @@ class Round {
       this.players.forEach(player =>{
         player.hands.forEach(hand =>{
 
-          if(player.surrendered  === true){
+          if(hand.surrendered  === true){
             console.log(player.name + ' Surrenders!!!')
           }else{
 
@@ -139,20 +139,7 @@ class Round {
       this.players.forEach( zplayer => { zplayer.resetHand() } )
     }
 
-  playAgain(deck){
-    let playAgain = prompt.ask('Would you like to play again?')
-    if(playAgain == true || playAgain == 'y' || playAgain == 'yes'){
 
-      console.log(deck);
-      let options = {
-        players: this.players,
-        deck: deck,
-        dealer: this.dealer,
-      }
-      const anotherOne = Game.newRound( options )
-      console.log(anotherOne);
-    }
-  }
 
 dealerBust(){
   if(this.dealer.isBust === true){
