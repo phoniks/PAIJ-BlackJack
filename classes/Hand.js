@@ -82,6 +82,8 @@ class Hand {
     }
   }
 
+  canDouble() => this.cards.length <= 2 && this.player.bank >= (this.bet *2)
+
   checkForNatural(){
     if(this.cards.length === 2 && this.handValue() === 21){
       return true

@@ -51,9 +51,9 @@ class Dealer extends AIPlayer{
 choiceString(hand){
 let choiceOptions = 'What is your action? [h]it, [s]tay'
   switch (true) {
-    case hand.insurable:
+    case hand.insurable === true :
       choiceOptions += ', [i]nsure'
-    case hand.canSurrender:
+    case hand.canSurrender === true:
       choiceOptions += ', su[r]render'
     case hand.cards.length === 2:
       choiceOptions += ', [d]ouble down'
@@ -102,13 +102,13 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
 
             // If option is hit, dealer deals a card to that player's hand.
             case 'hit':
-            case 'h'
+            case 'h':
               this.dealCard( deck, hand )
               //hand.showHand()
               break
 
             case 'stay':
-            case 's'
+            case 's':
               hand.stay = true
               break
 
@@ -126,8 +126,8 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
             //   break
 
             // Calls the doubleDown function on the Player class.
-            case 'ddown'
-            case 'd'
+            case 'ddown':
+            case 'd':
 
               if ( hand.doubledDown ) {
                 console.log("Can only double down once.")
