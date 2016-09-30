@@ -1,10 +1,14 @@
 const AIPlayer = require('../classes/AIPlayer')
 const Human = require('../classes/Human')
 const prompt = require('../classes/Prompt')
-const forBet = 'How much would you like to bet'
+
 const Hand = require('../classes/Hand')
 const Deck = require('../classes/Deck')
 const Game = require('../classes/Game')
+const chalk = require('chalk')
+
+const cardColor = chalk.bgWhite.black
+const forBet = 'How much would you like to bet'
 
 class Round {
 
@@ -19,7 +23,7 @@ class Round {
   start( players ) {
     if (!this.decks.shuffled){this.decks.shuffleGame()}
     else {this.decks.shuffleRound() }
-    players.forEach( player => { console.log( "BANK: " + player.bank ) })
+    players.forEach( player => { console.log( player.name+ " BANK: " + player.bank ) })
     this.createHands(players)
     this.takeBets(players)
     this.deal(players)
@@ -112,19 +116,22 @@ class Round {
       this.naturalPush()
       console.log('dealer has '+this.dealer.hands[0].showHand())
 
+
       this.players.forEach(player =>{
         player.hands.forEach(hand =>{
 
-          if( hand.player !== "Dealer" && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue()){
+          if( hand.player !== 'Dealer' && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue() && !this.dealer.hands[0].isBust ){
             player.bank += hand.currentBet * 2
-            console.log(player.name+' wins!!!')
-            
-          } else if (hand.player !== "Dealer" &&hand.handValue() === this.dealer.hands[0].handValue()){
-            player.bank += hand.currentBet
-            console.log(player.name+' pushed with '+hand.showHand()+'. At least they didnt lose any money!')
+          console.log(player.name+' wins!!!')
 
-          } else if(hand.player !== "Dealer"){
-            console.log(player.name+' lost with'+hand.showHand())
+          } else if (hand.player !== 'Dealer' && hand.handValue() === this.dealer.hands[0].handValue()){
+            player.bank += hand.currentBet
+            console.log(player.name+' pushed with '+cardColor(hand.showHand())+'. At least they didnt lose any money!')
+
+          } else if (hand.player !== 'Dealer' && hand.handValue() < this.dealer.hands[0].handValue() && this.dealer.isBust){
+            console.log(player.name+' wins with '+cardColor(hand.showHand()))
+          }else if (hand.player !== 'Dealer'){
+            console.log(player.name+' lost with '+cardColor(hand.showHand()))
           }
         })
       })
@@ -146,6 +153,11 @@ class Round {
     }
   }
 
+dealerBust(){
+  if(this.dealer.isBust === true){
+    return true
+  }
+}
 
   }
 module.exports = Round
