@@ -1,6 +1,10 @@
 const Player = require('../classes/Player')
+//const prompt = require( '../classes/Prompt' )
 
 const minimum = 5
+
+
+
 
 class AIPlayer extends Player {
   constructor(options) {
@@ -69,18 +73,18 @@ class AIPlayer extends Player {
   }
 
   logicStream() {
-    console.log("-------------------> Logic Stream ");
-    // if(this.decideToSplit()) {
-    //   console.log("AI is splitting.");
-    //   return 'split'
+    console.log("------------------->  " + this.name )
+        // if(this.decideToSplit()) {
+        //   console.log("AI is splitting.");
+        //   return 'split'
     if(this.decideToDoubleDown()){
-      console.log("AI is doubling down.");
+      console.log( this.name + " is doubling down.")
       return 'ddown'
     }else if(this.decideToHit()){
-      console.log("AI is taking a hit.");
+      console.log( this.name + " is taking a hit.")
       return  'hit'
     }else{
-      console.log("AI is going to stay.")
+      console.log( this.name + " is going to stay.")
       return 'stay'
     }
   }

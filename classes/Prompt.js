@@ -46,7 +46,7 @@ module.exports = {
   },
 
   aiTurn: player => {
-    console.log("------------------->  ")
+    console.log( turnColor( "------------------->  " + player.name ) )
   }
 
 }
