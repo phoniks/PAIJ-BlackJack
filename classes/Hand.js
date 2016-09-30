@@ -13,7 +13,7 @@ class Hand {
     this.beenSplit = false
     this.isBust = false
     this.insurable = true
-    this.canSurrender = true
+    this.surrendered = false
   }
 
   // Adds a card object to the hand.

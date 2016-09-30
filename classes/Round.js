@@ -116,18 +116,23 @@ class Round {
       this.players.forEach(player =>{
         player.hands.forEach(hand =>{
 
-          if( hand.player !== 'Dealer' && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue() && !this.dealer.hands[0].isBust ){
-            player.bank += hand.currentBet * 2
-          console.log(player.name+' wins!!!')
+          if(player.surrendered  === true){
+            console.log(player.name + ' Surrenders!!!')
+          }else{
 
-          } else if (hand.player !== 'Dealer' && hand.handValue() === this.dealer.hands[0].handValue()){
-            player.bank += hand.currentBet
-            console.log(player.name+' pushed with '+cardColor(hand.showHand())+'. At least they didnt lose any money!')
+            if( hand.player !== 'Dealer' && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue() && !this.dealer.hands[0].isBust ){
+              player.bank += hand.currentBet * 2
+            console.log(player.name+' wins!!!')
 
-          } else if (hand.player !== 'Dealer' && hand.handValue() < this.dealer.hands[0].handValue() && this.dealer.isBust){
-            console.log(player.name+' wins with '+cardColor(hand.showHand()))
-          }else if (hand.player !== 'Dealer'){
-            console.log(player.name+' lost with '+cardColor(hand.showHand()))
+            } else if (hand.player !== 'Dealer' && hand.handValue() === this.dealer.hands[0].handValue()){
+              player.bank += hand.currentBet
+              console.log(player.name+' pushed with '+cardColor(hand.showHand())+'. At least they didnt lose any money!')
+
+            } else if (hand.player !== 'Dealer' && hand.handValue() < this.dealer.hands[0].handValue() && this.dealer.isBust){
+              console.log(player.name+' wins with '+cardColor(hand.showHand()))
+            }else if (hand.player !== 'Dealer'){
+              console.log(player.name+' lost with '+cardColor(hand.showHand()))
+            }
           }
         })
       })
