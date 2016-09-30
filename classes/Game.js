@@ -72,9 +72,6 @@ doRound() {
   } while ( this.keepPlaying === true )
 }
 
-
-
 }
-
 
 module.exports = Game

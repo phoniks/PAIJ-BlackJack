@@ -69,7 +69,6 @@ class AIPlayer extends Player {
   }
 
   logicStream() {
-    console.log("-------------------> Logic Stream ");
     // if(this.decideToSplit()) {
     //   console.log("AI is splitting.");
     //   return 'split'
