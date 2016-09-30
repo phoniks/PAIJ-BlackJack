@@ -69,7 +69,7 @@ doRound() {
         this.keepPlaying = false
         break
       }
-  } while ( this.keepPlaying === true )
+  } while (this.keepPlaying === true && this.players.forEach(player => player.bank > 10) )
 }
 
 

@@ -114,7 +114,7 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
             // If option is hit, dealer deals a card to that player's hand.
             case 'hit':
             case 'h':
-              this.dealCard( deck, hand )
+              player.hit( this, deck, hand )
               hand.showHand()
               break
 
@@ -146,7 +146,7 @@ let choiceOptions = 'What is your action? [h]it, [s]tay'
               } else {
 
               player.doubleDown( hand )
-              this.dealCard( deck, hand )
+              player.hit( this, deck, hand )
               hand.stay = true
             }
               break

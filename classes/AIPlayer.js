@@ -43,7 +43,7 @@ class AIPlayer extends Player {
 
   decideToDoubleDown(  ) {
     for ( let hand of this.hands ) {
-      if ( hand.handValue() >= 9 && hand.handValue() <= 11 ) {
+      if ( this.name !== 'Dealer' && hand.handValue() >= 9 && hand.handValue() <= 11 ) {
         if( this.bank > 50 && hand.currentBet < this.bank){
           return true
         }

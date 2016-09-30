@@ -17,6 +17,7 @@ class Hand {
     this.surrendered = false
     this.insured = false
     this.canSurrender = true
+    this.isBlackjack = false
   }
 
   // Adds a card object to the hand.
@@ -58,17 +59,20 @@ class Hand {
   // Invokes the value/rank of a card and adds to the total.
   handValue() {
     let total = 0
-
     for ( let card of this.cards ) {
       total += card.value()
     }
-
     if ( total > 21 ) {
       if (this.checkForAce()){
         total -= 10
-      } else {
+      }else{
         this.isBust = true
-      } return total
+      }
+
+      if (total >21){
+        this.isBust = true
+      }
+      return total
     } else {
     return total
     }
@@ -88,12 +92,6 @@ class Hand {
     this.cards.length <= 2 && this.player.bank >= (this.bet *2)
   }
 
-canInsure(){
-  const card = this.showDealerCard()
-  if(card[0].isAce()){
-    return true
-  }
-}
 
   checkForNatural(){
     if(this.cards.length === 2 && this.handValue() === 21){
