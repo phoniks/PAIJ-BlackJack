@@ -33,9 +33,10 @@ class Player {
 
     // Takes the current bet from a Players Hand and doubles it.
     doubleDown( handObj ) {
-      handObj.canDoubleDown = false
+      if(handObj.canDoubleDown === true){
       let doubledBet = handObj.currentBet * 2
       this.bank -= doubledBet
+      handObj.canDoubledDown = false}
     }
 
     addHand( handObj ) {

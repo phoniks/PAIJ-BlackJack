@@ -128,7 +128,7 @@ class Round {
               player.bank += hand.currentBet
               console.log(player.name+' pushed with '+cardColor(hand.showHand())+'. At least they didnt lose any money!')
 
-            } else if (hand.player !== 'Dealer' && hand.handValue() < this.dealer.hands[0].handValue() && this.dealer.isBust){
+            } else if (hand.player !== 'Dealer' && hand.handValue() < this.dealer.hands[0].handValue() && this.dealer.hands[0].isBust){
               console.log(player.name+' wins with '+cardColor(hand.showHand()))
             }else if (hand.player !== 'Dealer'){
               console.log(player.name+' lost with '+cardColor(hand.showHand()))
