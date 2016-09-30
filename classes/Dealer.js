@@ -60,23 +60,10 @@ class Dealer extends AIPlayer{
           if ( player instanceof Human ) {
 
             while(!hands[hand].isBust && !hands[hand].stay){
-              console.log( "Other players' hands: " )
-              //TODO Needs to handle multiple hand displays.
-              players.forEach( playerz => {
-                console.log( playerz.name + cardColor(playerz.hands[0].showHand() ) + "\n")
-              })
-                console.log("\n")
 
-
-              console.log( "Dealer's hand: " + cardColor(this.hands[0].showDealerCard()) )
-
-              //console.log( "Your hand: \n")
-              //player.hands.forEach( hand => { console.log(hand.showHand() ) } )
-              console.log(hands[hand].showHand())
-              if ( players[p].hands[1] ) {console.log(players[p].hands[1].showHand() ) }
-
-              //console.log(player.hands[1].showHand())
-              console.log( "Hand value: " + players[p].hands[0].handValue() )
+              prompt.otherHands( players )
+              prompt.dealerCard( this )
+              prompt.playerPrompt( player )
 
               if ( players[p].hands[1] ) {console.log(players[p].hands[1].handValue() ) }
 
