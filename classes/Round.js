@@ -23,13 +23,13 @@ class Round {
   start( players ) {
     if (!this.decks.shuffled){this.decks.shuffleGame()}
     else {this.decks.shuffleRound() }
-    players.forEach( player => { console.log( player.name+ " BANK: " + player.bank ) })
+    //players.forEach( player => { console.log( player.name+ " BANK: " + player.bank ) })
     this.createHands(players)
     this.takeBets(players)
     this.deal(players)
     this.dealer.playerTurn(players, this.decks)
     this.settle()
-    players.forEach( player => { console.log( "BANK: " + player.bank ) })
+    //players.forEach( player => { console.log( "BANK: " + player.bank ) })
     //playAgain(this.decks)
   }
 
@@ -40,20 +40,16 @@ class Round {
       this.dealer.addHand(new Hand('Dealer'))
     }
 
-    takeBets(players){
-      players.forEach(player => {
-        if(player instanceof AIPlayer){
-          player.bet(player.getBet())
+    takeBets( players ) {
+      players.forEach( player => {
+        if ( player instanceof AIPlayer ) {
+          player.bet( player.getBet() )
         } else if ( player instanceof Human) {
           let playerBet = 0
-           do {
+          do {
             playerBet = prompt.askForNumber(forBet)
-          } while ( playerBet > player.bank )
-
-
-
-          // if ( player.bank <= playerBet ) { player.bet() }
-          // else { playerBet = prompt.askForNumber( forBet ) }
+            } while ( playerBet > player.bank )
+          player.bet(playerBet)
           // TODO May need to check for zero funds and end game.
         }
       })
