@@ -17,12 +17,9 @@
   }
 
 class Card{
-
     constructor(rank, suit) {
-
         this.suit = suit
         this.rank = rank
-
     }
 
      isAce(){

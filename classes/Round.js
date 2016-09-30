@@ -118,7 +118,7 @@ class Round {
           if( hand.player !== "Dealer" && hand.handValue() <= 21 && hand.handValue() > this.dealer.hands[0].handValue()){
             player.bank += hand.currentBet * 2
             console.log(player.name+' wins!!!')
-            
+
           } else if (hand.player !== "Dealer" &&hand.handValue() === this.dealer.hands[0].handValue()){
             player.bank += hand.currentBet
             console.log(player.name+' pushed with '+hand.showHand()+'. At least they didnt lose any money!')
@@ -149,11 +149,3 @@ class Round {
 
   }
 module.exports = Round
-
-// this.players.forEach(player =>{
-//   player.hands.forEach(hand=>{
-//     hand.cards.forEach(card=> {
-//       this.decks[0].cards.push(card)
-//     })
-//   })
-// })

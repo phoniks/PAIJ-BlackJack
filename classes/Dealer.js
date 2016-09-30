@@ -70,12 +70,9 @@ class Dealer extends AIPlayer{
 
               console.log( "Dealer's hand: " + cardColor(this.hands[0].showDealerCard()) )
 
-              //console.log( "Your hand: \n")
-              //player.hands.forEach( hand => { console.log(hand.showHand() ) } )
               console.log(hands[hand].showHand())
               if ( players[p].hands[1] ) {console.log(players[p].hands[1].showHand() ) }
 
-              //console.log(player.hands[1].showHand())
               console.log( "Hand value: " + players[p].hands[0].handValue() )
 
               if ( players[p].hands[1] ) {console.log(players[p].hands[1].handValue() ) }
@@ -106,12 +103,6 @@ class Dealer extends AIPlayer{
             case 'stay':
               hand.stay = true
               break
-
-            // The dealer splits the player's current hand.
-            // case 'split':
-            // console.log("Hand to be split: " + hand.showHand())
-            //   this.split( player, hand )
-            //   break
 
             // Calls the doubleDown function on the Player class.
             case 'ddown':

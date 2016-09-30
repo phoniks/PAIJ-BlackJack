@@ -74,8 +74,6 @@ class Hand {
       return true
     }
   }
-
-
 }
 
 module.exports = Hand
