@@ -30,7 +30,7 @@ start(){
       name: this.names[i],
       seat: position
     }
-    players.push(new AIPlayer(specs ))
+    players.push(new AIPlayer( specs ))
     remaining.shift()
   }
 

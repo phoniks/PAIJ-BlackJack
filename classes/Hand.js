@@ -1,3 +1,6 @@
+const chalk = require('chalk')
+const colors = require('colors')
+
 class Hand {
     constructor ( playerName ) {
     this.player = playerName
@@ -11,7 +14,7 @@ class Hand {
 
   // Adds a card object to the hand.
   addCard( card ) {
-    console.log(card)
+    console.log(card.toString())
     this.cards.push( card )
     this.handValue()
   }
@@ -34,9 +37,17 @@ class Hand {
   showHand() {
     const disHand = []
     for ( let card of this.cards ) {
-      disHand.push(`${card.rank}` + " " + `${card.suit}` )
+      disHand.push( `${card.rank}` + `${card.suit}` + ' ')
     }
+    let handTotal = this.handValue()
+    disHand.push( handTotal  )
     return disHand
+  }
+
+  showDealerCard() {
+    let dealerCard = this.showHand()
+    dealerCard.shift()
+    return dealerCard
   }
 
   // Invokes the value/rank of a card and adds to the total.

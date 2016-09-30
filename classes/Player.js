@@ -14,7 +14,7 @@ class Player {
     }
 
     // Takes funds from player's bank and adds it the the Hand's bet variable.
-    bet(option) {
+    bet( option ) {
       for ( let hand of this.hands ) {
         hand.increaseBet( option )
       }
